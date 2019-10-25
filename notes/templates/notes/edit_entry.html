@@ -1,0 +1,16 @@
+{% extends 'notes/base.html' %}
+
+{% block content %}
+
+<p><a href="{% url 'notes:topic' topic.id %}">{{topic}}</a></p>
+
+<p>Edit entry:</p>
+
+<form action="{% url 'notes:edit_entry' entry.id %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button name="submit">Save changes</button>
+</form>
+
+{% endblock content %}

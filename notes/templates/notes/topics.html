@@ -1,0 +1,21 @@
+{% extends 'notes/base.html' %}
+
+{% block page_header %}
+<p class="pt-5 mt-5">Topics:</p>
+{% endblock page_header %}
+
+
+{% block content %}
+
+<ul>
+    {% for topic in topics %}
+    <li>
+        <a href="{% url 'notes:topic' topic.id %}">{{topic}}</a>
+    </li>
+    {% empty %}
+    <li>No Topics has been added yet.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'notes:new_topic' %}">Add a new topic</a>
+
+{% endblock content %}

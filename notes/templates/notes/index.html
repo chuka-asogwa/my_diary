@@ -1,9 +1,94 @@
-<h1>MY Diary</h1>
+{% extends "notes/base.html" %}
 
-<p>
-    This is a simple diary app that allows users to take notes.
-</p>
+  <!-- Page Header -->
+  {% block page_header %}
+  
+  <header class="masthead home_bg">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>My Diary</h1>
+            <span class="subheading">Add Topics and make entries to topics.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<p>
-    Users can even create topics and add entries to a particular topic they created in their notes
-</p>
+  {% endblock page_header %}
+
+  <!-- Main Content -->
+  {% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+          <a href="#">
+            <h2 class="post-title">
+              Keep a Diary and one day, it will keep you. (<small>Mae West</small>)
+            </h2>
+            <h3 class="post-subtitle">
+              You can conquer the world by putting your ideas down
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">Mr. diary Keeper</a>
+            on July 28, 2019</p>
+        </div>
+        <hr>
+        <div class="post-preview">
+          <a href="#">
+            <h2 class="post-title">
+              I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
+            </h2>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">Valentine Bruno</a>
+            on September 18, 2019</p>
+        </div>
+        <hr>
+        <div class="post-preview">
+          <a href="#">
+            <h2 class="post-title">
+              Science has not yet mastered prophecy
+            </h2>
+            <h3 class="post-subtitle">
+              We predict too much for the next year and yet far too little for the next ten.
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">Paul winks</a>
+            on August 24, 2019</p>
+        </div>
+        <hr>
+        <div class="post-preview">
+          <a href="#">
+            <h2 class="post-title">
+              Failure is not an option
+            </h2>
+            <h3 class="post-subtitle">
+              Many say exploration is part of our destiny, but it’s actually our duty to future generations.
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">John Smith</a>
+            on July 8, 2019</p>
+        </div>
+        <hr>
+        <!-- Pager -->
+        {% if user.is_authenticated %}
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="{% url 'notes:topics' %}">New Topic &rarr;</a>
+        </div>
+        {% else %}
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="{% url 'users:register' %}">Get started &rarr;</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {% endblock content %}

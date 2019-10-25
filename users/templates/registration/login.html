@@ -1,0 +1,22 @@
+{% extends 'notes/base.html' %}
+
+{% block page_header %}
+<p class="pt-5 mt-5">Login:</p>
+{% endblock page_header %}
+
+{% block content %}
+
+{% if form.errors %}
+<p>Invalid username or password. Please try again!</p>
+{% endif %}
+
+<form action="{% url 'users:login' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button name="submit">Log in</button>
+    <input type="hidden" name="next" value="{% url 'notes:index' %}" />
+
+</form>
+
+{% endblock content %}

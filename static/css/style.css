@@ -1,0 +1,12 @@
+.home_bg {
+    background-image: url('../img/home-bg.jpg') !important;
+}
+
+.soft_bg {
+    background-color: rgb(193, 154, 107) !important;
+    background-size: cover;
+}
+
+.cool_color {
+    color: rgb(58, 22, 22) !important;
+}
